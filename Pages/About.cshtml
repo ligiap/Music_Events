@@ -1,0 +1,42 @@
+﻿@page
+@model Music_Events.Pages.AboutModel
+@{
+    ViewData["Title"] = "Current Events - Statistics";
+}
+
+<h2>Current Events - Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Event Date
+        </th>
+       @* <th>
+            Event Name
+        </th>*@
+        <th>
+            Number of Attending Artists
+        </th>
+        @*<th>
+            Total Expenses
+        </th>*@
+    </tr>
+
+    @foreach (var item in Model.EventGroup)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.EventDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EventName)
+    </td>
+    <td>
+        @item.ArtistCount
+    </td>
+    <td>
+        @item.TotalExpenses
+    </td>
+</tr>
+    }
+</table>
